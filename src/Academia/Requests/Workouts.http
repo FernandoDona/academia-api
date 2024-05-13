@@ -1,0 +1,91 @@
+@Academia_HostAddress = http://localhost:5275
+
+### Get all workouts
+GET {{Academia_HostAddress}}/workouts
+
+### Get a specific workout by id
+GET {{Academia_HostAddress}}/workouts/{id}
+
+### Create a new workout
+POST {{Academia_HostAddress}}/workouts
+Content-Type: application/json
+
+{
+    "RoutineId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "Name": "My Workout",
+    "Items": [
+        {
+            "ExerciseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "Series": [
+                {
+                    "Repetitions": 10,
+                    "Weight": 15.5
+                },
+                {
+                    "Repetitions": 10,
+                    "Weight": 15.5
+                },
+                {
+                    "Repetitions": 10,
+                    "Weight": 15.5
+                }
+            ]
+        }
+    ]
+}
+
+### Create a new workout item
+POST {{Academia_HostAddress}}/workouts/{id}/item
+Content-Type: application/json
+
+{
+    "ExerciseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "Series": [
+        {
+            "Repetitions": 10,
+            "Weight": 15.5
+        },
+        {
+            "Repetitions": 10,
+            "Weight": 15.5
+        },
+        {
+            "Repetitions": 10,
+            "Weight": 15.5
+        }
+    ]
+}
+
+### Update a workout
+PUT {{Academia_HostAddress}}/workouts/{id}
+Content-Type: application/json
+
+{
+    "RoutineId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "Name": "My Workout",
+    "Items": [
+        {
+            "ExerciseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "Series": [
+                {
+                    "Id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                    "Repetitions": 10,
+                    "Weight": 15.5
+                },
+                {
+                    "Id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                    "Repetitions": 10,
+                    "Weight": 15.5
+                },
+                {
+                    "Id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                    "Repetitions": 10,
+                    "Weight": 15.5
+                }
+            ]
+        }
+    ]
+}
+
+### Delete a workout
+DELETE {{Academia_HostAddress}}/workouts/{id}

@@ -1,0 +1,29 @@
+@Academia_HostAddress = http://localhost:5275
+
+### Get Body Measurement Records
+GET {{Academia_HostAddress}}/measurement-records
+
+###
+
+### Create Body Measurement Record
+POST {{Academia_HostAddress}}/measurement-records
+Content-Type: application/json
+
+{
+    "UserId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "Height": 180,
+    "Weight": 75.5,
+    "Shoulders": 50,
+    "Chest": 100,
+    "Waist": 80,
+    "Hip": 90,
+    "RightArm": 30,
+    "LeftArm": 30,
+    "RightThigh": 60,
+    "LeftThigh": 60
+}
+
+###
+
+### Delete Body Measurement Record
+DELETE {{Academia_HostAddress}}/measurement-records/{id}

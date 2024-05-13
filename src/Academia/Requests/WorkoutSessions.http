@@ -1,0 +1,16 @@
+@Academia_HostAddress = http://localhost:5275
+
+### Obter todas as sessões de treino
+GET {{Academia_HostAddress}}/workouts/sessions?startDate={startDate}
+
+### Obter sessões de treino para um treino específico
+GET {{Academia_HostAddress}}/workouts/{id}/sessions?startDate={startDate}
+
+### Iniciar uma sessão de treino para um treino específico
+POST {{Academia_HostAddress}}/workouts/{id}/sessions
+
+### Finalizar uma sessão de treino para um treino específico
+PATCH {{Academia_HostAddress}}/workouts/{id}/sessions
+
+### Finalizar uma sessão de item de treino para um treino específico
+PATCH {{Academia_HostAddress}}/workouts/{id}/sessions/item/{workoutItemId}
