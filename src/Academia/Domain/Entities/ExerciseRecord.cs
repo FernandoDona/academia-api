@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 namespace Academia.Domain.Entities;
 public class ExerciseRecord
 {
-    public Guid Id { get; private set; }
-    public Guid UserId { get; private set; }
-    public Guid ExerciseId { get; private set; }
+    public int Id { get; private set; }
+    public int UserId { get; private set; }
+    public int ExerciseId { get; private set; }
     public decimal WeightAverage { get; private set; }
     public decimal RepetitionsAverage { get; private set; }
     public DateTime CreatedAt { get; private set; }
 
     private ExerciseRecord() { }
 
-    private ExerciseRecord(Guid id, Guid userId, Guid exerciseId, decimal weightAvarage, decimal repetitionsAverage, DateTime createdAt)
+    private ExerciseRecord(int id, int userId, int exerciseId, decimal weightAvarage, decimal repetitionsAverage, DateTime createdAt)
     {
         Id = id;
         UserId = userId;
@@ -26,14 +26,14 @@ public class ExerciseRecord
         CreatedAt = createdAt;
     }
 
-    public static ExerciseRecord Create(decimal weightAverage, decimal repetitionsAverage, Guid userId, Guid exerciseId, DateTime createdAt, Guid? id = null)
+    public static ExerciseRecord Create(decimal weightAverage, decimal repetitionsAverage, int userId, int exerciseId, DateTime createdAt, int? id = null)
     {
         if (!ValidateWeight(weightAverage))
             throw new ArgumentException("Peso inválido");
         if (!ValidateRepetitions(repetitionsAverage))
             throw new ArgumentException("Repetições inválidas");
 
-        return new ExerciseRecord(id ?? Guid.NewGuid(), userId, exerciseId, weightAverage, repetitionsAverage, createdAt);
+        return new ExerciseRecord(id ?? 0, userId, exerciseId, weightAverage, repetitionsAverage, createdAt);
     }
 
     public static bool ValidateWeight(decimal weight)

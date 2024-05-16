@@ -3,16 +3,16 @@ public class Workout
 {
     private List<WorkoutItem>? _items;
     private List<WorkoutSession>? _sessions;
-    public Guid Id { get; private set; }
-    public Guid UserId { get; private set; }
-    public Guid? RoutineId { get; private set; }
+    public int Id { get; private set; }
+    public int UserId { get; private set; }
+    public int? RoutineId { get; private set; }
     public string Name { get; private set; }
     public IReadOnlyList<WorkoutItem>? Items => _items?.ToList();
     public IReadOnlyList<WorkoutSession>? Sessions => _sessions?.ToList();
     public DateTime CreatedAt { get; private set; }
 
     private Workout() { }
-    private Workout(Guid id, Guid userId, string name, DateTime createdAt, Guid? routineId = null, List<WorkoutItem>? items = null, List<WorkoutSession>? sessions = null)
+    private Workout(int id, int userId, string name, DateTime createdAt, int? routineId = null, List<WorkoutItem>? items = null, List<WorkoutSession>? sessions = null)
     {
         Id = id;
         UserId = userId;
@@ -23,9 +23,9 @@ public class Workout
         _sessions = sessions;
     }
 
-    public Workout Create(string name, Guid userId, DateTime createdAt, Guid? routineId = null, List<WorkoutItem>? items = null, List<WorkoutSession>? sessions = null, Guid? id = null)
+    public Workout Create(string name, int userId, DateTime createdAt, int? routineId = null, List<WorkoutItem>? items = null, List<WorkoutSession>? sessions = null, int? id = null)
     {
-        return new Workout(id ?? Guid.NewGuid(), userId, name, createdAt, routineId, items, sessions);
+        return new Workout(id ?? 0, userId, name, createdAt, routineId, items, sessions);
     }
 
     public void StartNewSession(DateTime startedAt)

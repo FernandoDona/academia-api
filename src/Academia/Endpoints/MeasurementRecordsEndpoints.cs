@@ -31,7 +31,7 @@ public static class MeasurementRecordsEndpoints
         return TypedResults.Created();
     }
 
-    private static async Task<NoContent> DeleteBodyMeasurementRecord(Guid id)
+    private static async Task<NoContent> DeleteBodyMeasurementRecord(int id)
     {
         return TypedResults.NoContent();
     }

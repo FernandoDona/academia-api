@@ -39,29 +39,29 @@ public static class WorkoutsEndpoints
         return TypedResults.Ok(workouts);
     }
 
-    private static async Task<Ok<WorkoutResponse>> GetWorkout(Guid id)
+    private static async Task<Ok<WorkoutResponse>> GetWorkout(int id)
     {
-        var workout = new WorkoutResponse(Guid.Empty, Guid.Empty, Guid.Empty, string.Empty, null, null, DateTime.Now);
+        var workout = new WorkoutResponse(int.Empty, int.Empty, int.Empty, string.Empty, null, null, DateTime.Now);
         return TypedResults.Ok(workout);
     }
 
     private static async Task<CreatedAtRoute<WorkoutResponse>> CreateWorkout(CreateWorkoutRequest workout)
     {
-        var newWorkout = new WorkoutResponse(Guid.Empty, Guid.Empty, Guid.Empty, string.Empty, null, null, DateTime.Now);
+        var newWorkout = new WorkoutResponse(int.Empty, int.Empty, int.Empty, string.Empty, null, null, DateTime.Now);
         return TypedResults.CreatedAtRoute(newWorkout, nameof(CreateWorkout), new { id = newWorkout.Id });
     }
 
-    private static async Task<Created> CreateWorkoutItem(Guid id, CreateWorkoutItemRequest workout)
+    private static async Task<Created> CreateWorkoutItem(int id, CreateWorkoutItemRequest workout)
     {
         return TypedResults.Created();
     }
 
-    private static async Task<NoContent> UpdateWorkout(Guid id, UpdateWorkoutRequest workout)
+    private static async Task<NoContent> UpdateWorkout(int id, UpdateWorkoutRequest workout)
     {
         return TypedResults.NoContent();
     }
 
-    private static async Task<NoContent> DeleteWorkout(Guid id)
+    private static async Task<NoContent> DeleteWorkout(int id)
     {
         return TypedResults.NoContent();
     }

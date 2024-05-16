@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace Academia.Contracts.BodyMeasurement;
 
 public record CreateBodyMeasurementRequest(
-    Guid UserId,
+    int UserId,
     int Height,
     decimal Weight,
     int? Shoulders,

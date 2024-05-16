@@ -1,7 +1,7 @@
 namespace Academia.Contracts.Workout;
 
 public record WorkoutSessionResponse(
-    Guid Id,
-    Guid WorkoutId,
+    int Id,
+    int WorkoutId,
     DateTime StartedAt,
     DateTime? FinishedAt);

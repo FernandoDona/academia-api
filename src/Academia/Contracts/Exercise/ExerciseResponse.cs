@@ -1,5 +1,5 @@
 namespace Academia.Contracts.Exercise;
 
 public record ExerciseResponse(
-    Guid Id,
+    int Id,
     string Name);

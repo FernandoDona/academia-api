@@ -8,8 +8,8 @@ namespace Academia.Domain.Entities;
 public class Routine
 {
     private List<Workout>? _workouts;
-    public Guid Id { get; private set; }
-    public Guid UserId { get; private set; }
+    public int Id { get; private set; }
+    public int UserId { get; private set; }
     public string Name { get; private set; }
     public string? Description { get; private set; }
     public IReadOnlyList<Workout>? Workouts => _workouts?.ToList();
@@ -17,7 +17,7 @@ public class Routine
 
     private Routine() { }
 
-    private Routine(Guid id, Guid userId, string name, string? description, DateTime createdAt, List<Workout>? workouts = null)
+    private Routine(int id, int userId, string name, string? description, DateTime createdAt, List<Workout>? workouts = null)
     {
         Id = id;
         UserId = userId;
@@ -27,10 +27,10 @@ public class Routine
         _workouts = workouts;
     }
 
-    public static Routine Create(string name, Guid userId, string? description = null, List<Workout>? workouts = null, Guid? id = null)
+    public static Routine Create(string name, int userId, string? description = null, List<Workout>? workouts = null, int? id = null)
     {
-        var routine = new Routine(id ?? Guid.NewGuid(), userId, name, description, DateTime.UtcNow, workouts);
-        routine.Id = id ?? Guid.NewGuid();
+        var routine = new Routine(id ?? 0, userId, name, description, DateTime.UtcNow, workouts);
+        routine.Id = id ?? 0;
         routine.UserId = userId;
         routine.Name = name;
         routine.Description = description;

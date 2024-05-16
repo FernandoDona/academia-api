@@ -1,8 +1,8 @@
 ﻿namespace Academia.Contracts.Workout;
 public record WorkoutResponse(
-    Guid Id,
-    Guid UserId,
-    Guid? RoutineId,
+    int Id,
+    int UserId,
+    int? RoutineId,
     string Name,
     List<WorkoutItemResponse>? Items,
     List<WorkoutSessionResponse>? Sessions,

@@ -1,6 +1,6 @@
 ﻿namespace Academia.Contracts.Workout;
 
 public record UpdateWorkoutRequest(
-    Guid? RoutineId,
+    int? RoutineId,
     string? Name,
     List<UpdateWorkoutItemRequest>? Items);

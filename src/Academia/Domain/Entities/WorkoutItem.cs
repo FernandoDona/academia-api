@@ -8,15 +8,15 @@ namespace Academia.Domain.Entities;
 public class WorkoutItem
 {
     private List<Serie>? _series;
-    public Guid Id { get; private set; }
-    public Guid WorkoutId { get; private set; }
-    //public Guid ExerciseId { get; set; }
+    public int Id { get; private set; }
+    public int WorkoutId { get; private set; }
+    //public int ExerciseId { get; set; }
     public Exercise Exercise{ get; private set; }
     public IReadOnlyList<Serie>? Series => _series?.ToList();
 
     private WorkoutItem() { }
 
-    private WorkoutItem(Guid id, Guid workoutId, Exercise exercise, List<Serie>? series = null)
+    private WorkoutItem(int id, int workoutId, Exercise exercise, List<Serie>? series = null)
     {
         Id = id;
         WorkoutId = workoutId;
@@ -24,9 +24,9 @@ public class WorkoutItem
         _series = series;
     }
 
-    public static WorkoutItem Create(Guid workoutId, Exercise exercise, List<Serie>? series = null, Guid? id = null)
+    public static WorkoutItem Create(int workoutId, Exercise exercise, List<Serie>? series = null, int? id = null)
     {
-        return new WorkoutItem(id ?? Guid.NewGuid(), workoutId, exercise, series);
+        return new WorkoutItem(id ?? 0, workoutId, exercise, series);
     }
 
     public void AddSerie(Serie serie)

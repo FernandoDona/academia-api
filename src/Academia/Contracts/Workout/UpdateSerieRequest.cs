@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 namespace Academia.Contracts.Workout;
 
 public record UpdateSerieRequest(
-    Guid Id,
+    int Id,
     int Repetitions,
     decimal Weight);

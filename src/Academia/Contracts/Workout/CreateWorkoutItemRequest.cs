@@ -3,5 +3,5 @@ using Academia.Contracts.Exercise;
 namespace Academia.Contracts.Workout;
 
 public record CreateWorkoutItemRequest(
-    Guid ExerciseId,
+    int ExerciseId,
     List<SerieRequest> Series);

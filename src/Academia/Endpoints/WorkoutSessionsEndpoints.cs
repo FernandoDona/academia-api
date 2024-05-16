@@ -34,23 +34,23 @@ public static class WorkoutSessionsEndpoints
         return TypedResults.Ok(sessions);
     }
 
-    private static async Task<Ok<List<WorkoutSessionResponse>>> GetWorkoutSessions(Guid id, DateTime? startdate)
+    private static async Task<Ok<List<WorkoutSessionResponse>>> GetWorkoutSessions(int id, DateTime? startdate)
     {
         var sessions = new List<WorkoutSessionResponse>();
         return TypedResults.Ok(sessions);
     }
 
-    private static async Task<Created> StartWorkoutSession(Guid id)
+    private static async Task<Created> StartWorkoutSession(int id)
     {
         return TypedResults.Created();
     }
 
-    private static async Task<NoContent> FinishWorkoutSession(Guid id)
+    private static async Task<NoContent> FinishWorkoutSession(int id)
     {
         return TypedResults.NoContent();
     }
 
-    private static async Task<NoContent> FinishWorkoutItemSession(Guid id, Guid workoutItemId)
+    private static async Task<NoContent> FinishWorkoutItemSession(int id, int workoutItemId)
     {
         return TypedResults.NoContent();
     }

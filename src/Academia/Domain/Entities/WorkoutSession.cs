@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 namespace Academia.Domain.Entities;
 public class WorkoutSession
 {
-    public Guid Id { get; private set; }
-    public Guid WorkoutId { get; private set; }
+    public int Id { get; private set; }
+    public int WorkoutId { get; private set; }
     public DateTime StartedIn { get; private set; }
     public DateTime? DoneIn { get; private set; }
 
     private WorkoutSession() { }
-    private WorkoutSession(Guid id, Guid workoutId, DateTime startedIn, DateTime? doneIn = null) 
+    private WorkoutSession(int id, int workoutId, DateTime startedIn, DateTime? doneIn = null) 
     {
         Id = id;
         WorkoutId = workoutId;
@@ -21,12 +21,12 @@ public class WorkoutSession
         DoneIn = doneIn;
     }
 
-    public static WorkoutSession Create(Guid workoutId, DateTime startedIn, DateTime? doneIn = null, Guid? id = null)
+    public static WorkoutSession Create(int workoutId, DateTime startedIn, DateTime? doneIn = null, int? id = null)
     {
         if (!ValidateFinishDate(startedIn, doneIn))
             throw new ArgumentException($"A data de encerramento da sessão não pode ser menor que a data de início.");
         
-        return new WorkoutSession(id ?? Guid.NewGuid(), workoutId, startedIn, doneIn);
+        return new WorkoutSession(id ?? 0, workoutId, startedIn, doneIn);
     }
 
 

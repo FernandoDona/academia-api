@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace Academia.Domain.Entities;
 public class BodyMeasurement
 {
-    public Guid Id { get; set; }
-    public Guid UserId { get; private set; }
+    public int Id { get; set; }
+    public int UserId { get; private set; }
     public int Height { get; private set; }
     public decimal Weight { get; private set; }
     public int? Shoulders { get; private set; }
@@ -23,7 +23,7 @@ public class BodyMeasurement
 
     private BodyMeasurement() { }
 
-    private BodyMeasurement(Guid id, Guid userId, DateTime createdAt, int height, decimal weight, int? shoulders = null, int? chest = null, int? waist = null, int? hip = null, int? rightArm = null, int? leftArm = null, int? rightThigh = null, int? leftThigh = null) 
+    private BodyMeasurement(int id, int userId, DateTime createdAt, int height, decimal weight, int? shoulders = null, int? chest = null, int? waist = null, int? hip = null, int? rightArm = null, int? leftArm = null, int? rightThigh = null, int? leftThigh = null) 
     {
         Id = id;
         UserId = userId;
@@ -40,11 +40,11 @@ public class BodyMeasurement
         CreatedAt = createdAt;
     }
 
-    public BodyMeasurement Create(int height, decimal weight, Guid userId, DateTime createdAt, Guid? id = null)
+    public BodyMeasurement Create(int height, decimal weight, int userId, DateTime createdAt, int? id = null)
     {
         var bodyMeasurement = new BodyMeasurement();
 
-        bodyMeasurement.Id = id is null ? Guid.NewGuid() : id.Value;
+        bodyMeasurement.Id = id ?? 0;
         bodyMeasurement.UserId = userId;
         bodyMeasurement.SetHeight(height);
         bodyMeasurement.SetWeight(weight);

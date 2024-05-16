@@ -1,8 +1,8 @@
 namespace Academia.Contracts.Workout;
 
 public record WorkoutItemResponse(
-    Guid Id,
-    Guid WorkoutId,
-    Guid ExerciseId,
+    int Id,
+    int WorkoutId,
+    int ExerciseId,
     bool AreSeriesEqual,
     List<SerieResponse> Series);

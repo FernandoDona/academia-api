@@ -1,6 +1,6 @@
 ﻿namespace Academia.Contracts.Workout;
 
 public record CreateWorkoutRequest(
-    Guid? RoutineId,
+    int? RoutineId,
     string? Name,
     List<CreateWorkoutItemRequest>? Items);

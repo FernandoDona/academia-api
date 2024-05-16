@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 namespace Academia.Contracts.BodyMeasurement;
 
 public record BodyMeasurementResponse(
-    Guid Id,
-    Guid UserId,
+    int Id,
+    int UserId,
     int Height,
     decimal Weight,
     int? Shoulders,

@@ -39,13 +39,13 @@ public static class ExercisesEndpoints
         return TypedResults.Ok(exercises);
     }
 
-    private static async Task<Ok<ExerciseResponse>> GetExercise(Guid id)
+    private static async Task<Ok<ExerciseResponse>> GetExercise(int id)
     {
         var exercise = new ExerciseResponse(id, string.Empty);
         return TypedResults.Ok(exercise);
     }
 
-    private static async Task<Ok<List<ExerciseRecordResponse>>> GetExerciseRecords(Guid id)
+    private static async Task<Ok<List<ExerciseRecordResponse>>> GetExerciseRecords(int id)
     {
         var records = new List<ExerciseRecordResponse>();
         return TypedResults.Ok(records);
@@ -53,16 +53,16 @@ public static class ExercisesEndpoints
 
     private static async Task<CreatedAtRoute<ExerciseResponse>> CreateExercise(CreateExerciseRequest exercise)
     {
-        var newExercise = new ExerciseResponse(Guid.Empty, exercise.Name);
+        var newExercise = new ExerciseResponse(int.Empty, exercise.Name);
         return TypedResults.CreatedAtRoute(newExercise, nameof(CreateExercise), new { id = newExercise.Id });
     }
 
-    private static async Task<NoContent> UpdateExercise(Guid id, UpdateExerciseRequest exercise)
+    private static async Task<NoContent> UpdateExercise(int id, UpdateExerciseRequest exercise)
     {
         return TypedResults.NoContent();
     }
 
-    private static async Task<NoContent> DeleteExercise(Guid id)
+    private static async Task<NoContent> DeleteExercise(int id)
     {
         return TypedResults.NoContent();
     }
